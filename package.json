@@ -4,10 +4,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint --ext .js,.vue src",
+    "lint:fix": "eslint --fix --ext .js,.vue src"
   },
   "dependencies": {
     "@vueuse/core": "^7.5.3",
+    "@vueuse/integrations": "^7.5.3",
     "axios": "^0.24.0",
     "element-plus": "^1.3.0-beta.2",
     "vue": "^3.2.25",
@@ -16,6 +19,11 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.0.0",
+    "eslint": "^8.6.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^8.2.0",
+    "prettier": "^2.5.1",
     "sass": "^1.47.0",
     "unplugin-auto-import": "^0.5.5",
     "unplugin-vue-components": "^0.17.11",

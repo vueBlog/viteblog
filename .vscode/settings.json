@@ -1,0 +1,18 @@
+{
+  "eslint.validate": [
+    "html",
+    "vue",
+    "vue-html",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
+  "javascript.format.enable": false // 禁用vscode默认的js格式化插件
+}
