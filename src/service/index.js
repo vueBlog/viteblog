@@ -4,9 +4,7 @@ import { useNProgress } from '@vueuse/integrations/useNProgress'
 import './../styles/NProgress.scss'
 const { isLoading } = useNProgress()
 let config = {
-  baseURL: `${
-    import.meta.env.MODE !== 'development' ? import.meta.env.VITE_host : ''
-  }/api${import.meta.env.VITE_pathname}`,
+  baseURL: `/api${import.meta.env.VITE_pathname}`,
   timeout: 60 * 1000
 }
 
