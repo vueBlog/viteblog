@@ -1,5 +1,8 @@
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
+import { useNProgress } from '@vueuse/integrations/useNProgress'
+import './../styles/NProgress.scss'
+const { isLoading } = useNProgress()
 
 let config = {
   baseURL: `/api${import.meta.env.VITE_pathname}`,
@@ -11,6 +14,7 @@ const instance = axios.create(config)
 instance.interceptors.request.use(
   config => {
     // Do something before request is sent
+    isLoading.value = !isLoading.value
     return config
   },
   error => {
@@ -28,6 +32,7 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
   response => {
     // Do something with response data
+    isLoading.value = !isLoading.value
     if (response.status === 200 || response.data.isok) {
       return response.data
     } else {

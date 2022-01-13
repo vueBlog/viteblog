@@ -95,7 +95,7 @@
 
 <style lang="scss">
   .search-box {
-    margin: 12px 30px;
+    margin: 14px 30px;
   }
   .autocomplete-popper {
     width: 600px !important;
