@@ -14,5 +14,6 @@
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true
   },
-  "javascript.format.enable": false // 禁用vscode默认的js格式化插件
+  "javascript.format.enable": false, // 禁用vscode默认的js格式化插件
+  "prettier.endOfLine": "lf"
 }

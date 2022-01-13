@@ -17,7 +17,7 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         // https://sass.bootcss.com/documentation/at-rules/use
-        additionalData: `@use "@/styles/element/index.scss" as *;`
+        additionalData: `@use "@/styles/index.scss" as *;`
       }
     }
   },
@@ -29,5 +29,14 @@ export default defineConfig({
     Components({
       resolvers: [ElementPlusResolver({ importStyle: 'sass' })]
     })
-  ]
+  ],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://www.fxss.work',
+        ws: true,
+        changeOrigin: true
+      }
+    }
+  }
 })

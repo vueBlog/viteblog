@@ -2,7 +2,10 @@ import { createStore } from 'vuex'
 
 const store = createStore({
   state() {
-    return {}
+    return {
+      logoText: import.meta.env.VITE_title || '',
+      logoDescription: import.meta.env.VITE_description || ''
+    }
   },
   getters: {},
   mutations: {},

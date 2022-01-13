@@ -1,0 +1,52 @@
+.header {
+  width: $page-width;
+  margin: 0 auto;
+  border-bottom: solid 1px $border-color;
+
+  .logo-box {
+    width: 200px;
+    height: $header-height;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+
+    .logo {
+      margin: 13px;
+      width: $logo-size;
+      height: $logo-size;
+      border-radius: 50%;
+    }
+
+    .logo-text {
+      flex: 1;
+      color: $theme-color;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+
+  .search-box {
+    margin: 12px 30px;
+  }
+
+  .header-nav {
+    border-bottom: 0;
+  }
+
+  .user-box {
+    width: 120px;
+    display: inline-block;
+
+    .user-box_header-img {
+      margin: 15px 10px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
+
+    .user-box_name {
+      margin-right: 10px;
+      font-size: 14px;
+    }
+  }
+}
