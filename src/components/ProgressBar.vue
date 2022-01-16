@@ -1,6 +1,14 @@
 <template>
   <div v-show="showFlag" class="progress-bar-box">
-    <el-progress :duration="3" :percentage="percentage" :stroke-width="strokeWidth" :indeterminate="indeterminate" :color="color" :stroke-linecap="strokeLinecap" :show-text="false" />
+    <el-progress
+      :duration="3"
+      :percentage="percentage"
+      :stroke-width="strokeWidth"
+      :indeterminate="indeterminate"
+      :color="color"
+      :stroke-linecap="strokeLinecap"
+      :show-text="false"
+    />
   </div>
 </template>
 

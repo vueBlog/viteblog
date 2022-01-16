@@ -41,7 +41,6 @@
 
   const logoText = store.state.logoText
   const logoDescription = store.state.logoDescription
-
   const friendLink = JSON.parse(import.meta.env.VITE_friendLink)
   const author = import.meta.env.VITE_author
   const record = import.meta.env.VITE_record

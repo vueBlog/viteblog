@@ -15,7 +15,6 @@
 <script setup>
   import { ref, onMounted, computed } from 'vue'
   import { useRouter, useRoute } from 'vue-router'
-  import pageHeader from './components/PageHeader.vue'
   import { useNProgress } from '@vueuse/integrations/useNProgress'
   import './styles/NProgress.scss'
 
