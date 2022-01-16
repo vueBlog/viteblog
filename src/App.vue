@@ -6,9 +6,9 @@
     <el-main>
       <router-view></router-view>
     </el-main>
-    <!-- <el-footer v-if="layoutShow" height="120px">
+    <el-footer v-if="layoutShow" height="120px">
       <page-footer></page-footer>
-    </el-footer> -->
+    </el-footer>
   </el-container>
 </template>
 
