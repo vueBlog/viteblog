@@ -1,7 +1,7 @@
 <template>
   <div class="header clearfix">
     <router-link to="/" class="logo-box fl">
-      <img class="logo" :src="logo" alt="logo" />
+      <img class="logo" :src="headerLogo" alt="logo" />
       <div class="logo-text">{{ logoText }}</div>
     </router-link>
     <div class="fr clearfix">
@@ -23,18 +23,35 @@
           </div>
         </template>
       </el-autocomplete>
+      <el-menu
+        class="header-nav fl"
+        :default-active="activeIndex"
+        mode="horizontal"
+        :router="true"
+        :ellipsis="false"
+      >
+        <el-menu-item
+          v-for="item in menuObj"
+          :key="item.index"
+          :index="item.index"
+          :route="item.route"
+        >
+          {{ item.title }}
+        </el-menu-item>
+      </el-menu>
     </div>
   </div>
 </template>
 
 <script setup>
-  import logo from '@/assets/img/logo.jpg'
+  import headerLogo from '@/assets/img/headerLogo.jpg'
   import { Search } from '@element-plus/icons-vue'
-  import { ref } from 'vue'
+  import { ref, computed } from 'vue'
   import { useStore } from 'vuex'
-  import { useRouter } from 'vue-router'
-  const router = useRouter()
+  import { useRouter, useRoute } from 'vue-router'
 
+  const router = useRouter()
+  const route = useRoute()
   const store = useStore()
   const logoText = store.state.logoText
 
@@ -87,6 +104,43 @@
     }
     return res
   }
+
+  // 菜单
+  const menuObj = [
+    {
+      index: '1',
+      route: '/',
+      title: '首页'
+    },
+    {
+      index: '2',
+      route: '/list',
+      title: '归档'
+    },
+    {
+      index: '3',
+      route: '/about',
+      title: '关于'
+    }
+  ]
+  const activeIndex = computed(() => {
+    let res
+    switch (route.name) {
+      case 'home':
+        res = '1'
+        break
+      case 'list':
+        res = '2'
+        break
+      case 'about':
+        res = '3'
+        break
+      default:
+        res = '1'
+        break
+    }
+    return res
+  })
 </script>
 
 <style lang="scss" scoped>

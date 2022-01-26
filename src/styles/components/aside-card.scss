@@ -1,0 +1,17 @@
+.box-card {
+  .box-card_item {
+    line-height: 28px;
+    .box-card_item-link {
+      display: block;
+      height: 28px;
+      color: $theme-light-color;
+      text-decoration: none;
+      &:hover {
+        color: $color-primary;
+      }
+      .sub-title {
+        font-size: 12px;
+      }
+    }
+  }
+}

@@ -3,10 +3,10 @@
     <el-header v-if="layoutShow" class="header-box">
       <page-header></page-header>
     </el-header>
-    <el-main>
+    <el-main class="layout-box">
       <router-view></router-view>
     </el-main>
-    <el-footer v-if="layoutShow" height="120px">
+    <el-footer v-if="layoutShow" class="layout-footer" height="120px">
       <page-footer></page-footer>
     </el-footer>
   </el-container>
@@ -40,6 +40,7 @@
 <style lang="scss">
   #app {
     padding: 0 20px;
+    min-width: 1000px;
     .header-box {
       position: sticky;
       left: 0;
@@ -47,6 +48,12 @@
       z-index: 100;
       padding: 0;
       background: #fff;
+    }
+    .layout-box {
+      padding: 20px 0;
+    }
+    .layout-footer {
+      padding: 0;
     }
   }
 </style>

@@ -8,7 +8,7 @@ export default {
   },
   getters: {
     getFirstAuthor(state) {
-      return state?.asideAuthor?[0]?.authorId
+      return state.asideAuthor.length && state.asideAuthor[0].authorId
     }
   },
   mutations: {

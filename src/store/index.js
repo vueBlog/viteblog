@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import asideStore from './asideStore'
 
 const store = createStore({
   state() {
@@ -9,7 +10,10 @@ const store = createStore({
   },
   getters: {},
   mutations: {},
-  actions: {}
+  actions: {},
+  modules: {
+    asideStore
+  }
 })
 
 export default store

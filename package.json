@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
+    "devF": "vite --force",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint --ext .js,.vue src",
@@ -14,8 +15,9 @@
     "@vueuse/core": "^7.5.3",
     "@vueuse/integrations": "^7.5.3",
     "axios": "^0.24.0",
-    "element-plus": "^1.3.0-beta.2",
-    "vue": "^3.2.25",
+    "dayjs": "^1.10.7",
+    "element-plus": "^1.3.0-beta.9",
+    "vue": "^3.2.29",
     "vue-router": "^4.0.12",
     "vuex": "^4.0.2"
   },
@@ -29,6 +31,7 @@
     "sass": "^1.47.0",
     "unplugin-auto-import": "^0.5.5",
     "unplugin-vue-components": "^0.17.11",
-    "vite": "^2.7.2"
+    "vite": "^2.7.2",
+    "vite-plugin-vue-setup-extend": "^0.3.0"
   }
 }
