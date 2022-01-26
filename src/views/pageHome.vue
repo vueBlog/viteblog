@@ -75,23 +75,22 @@
   import { reactive, watch } from 'vue'
   import { useRouter, useRoute } from 'vue-router'
   import { useStore } from 'vuex'
-  import getAsideEvent from './../utils/aside'
-  import getArticleEvent from './../utils/article'
 
   const router = useRouter()
   const route = useRoute()
   const store = useStore()
 
+  import getAsideEvent from './../utils/aside'
   const aside = reactive({
     loading: true,
     list: []
   })
-
   getAsideEvent(route, store).then(res => {
     aside.loading = res.loading
     aside.list = res.list
   })
 
+  import getArticleEvent from './../utils/article'
   const list = reactive({
     headerSelect: [
       {
