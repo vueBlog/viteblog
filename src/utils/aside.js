@@ -7,9 +7,13 @@ export default async function getAsideEvent(route, store) {
       await store.dispatch('asideStore/apigetAsideMethod')
     }
     loading = false
+    let asideList = store.state.asideStore.aside
+    if (route.path === '/list') {
+      asideList = asideList.filter(item => [2, 4].includes(item.type))
+    }
     return {
       loading,
-      list: store.state.asideStore.aside
+      list: asideList
     }
   } else if (route.path === '/about') {
     if (!store.state.asideStore.asideAuthor.length) {

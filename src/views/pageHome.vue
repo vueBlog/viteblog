@@ -80,14 +80,16 @@
   const route = useRoute()
   const store = useStore()
 
+  import { useTitle } from '@vueuse/core'
+  useTitle(`首页 | ${import.meta.env.VITE_title}`)
+
   import getAsideEvent from './../utils/aside'
   const aside = reactive({
     loading: true,
     list: []
   })
   getAsideEvent(route, store).then(res => {
-    aside.loading = res.loading
-    aside.list = res.list
+    Object.assign(aside, res)
   })
 
   import getArticleEvent from './../utils/article'
@@ -125,7 +127,7 @@
     route,
     () => {
       list.loading = true
-      document.documentElement.scrollTop = 0
+      document.body.scrollTop = document.documentElement.scrollTop = 0
       getArticleEvent(route, store).then(res => {
         Object.assign(list, res)
       })

@@ -1,12 +1,12 @@
 <template>
   <div class="item-box">
-    <router-link class="header" :to="articleLink">
+    <a class="header" target="_blank" :href="articleLink">
       <el-tag class="header-icon">{{ articleType }}</el-tag>
       <h2>{{ info.articleTitle }}</h2>
-    </router-link>
-    <router-link class="content" :to="articleLink">
+    </a>
+    <a class="content" target="_blank" :href="articleLink">
       {{ info.articleSubTitle }}...
-    </router-link>
+    </a>
     <div class="footer clearfix">
       <div class="footer-item">
         {{ articleCreateTime }}
@@ -60,7 +60,7 @@
   })
 
   const articleLink = computed(() => {
-    return `/detail/${props.info.articleId}`
+    return `${import.meta.env.VITE_detailPath}/detail/${props.info.articleId}`
   })
 </script>
 

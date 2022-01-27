@@ -4,13 +4,25 @@
       <span>{{ title }}</span>
     </template>
     <div v-for="item in info" :key="item.id" class="box-card_item">
-      <router-link
-        class="box-card_item-link clearfix"
-        :to="`${getTo}${item.id}`"
-      >
-        <span class="sub-title fr">{{ item.num }} {{ subTitle }}</span>
-        <div class="title ellipsis" :title="item.title">{{ item.title }}</div>
-      </router-link>
+      <template v-if="[2, 4].includes(cardType)">
+        <router-link
+          class="box-card_item-link clearfix"
+          :to="`${getTo}${item.id}`"
+        >
+          <span class="sub-title fr">{{ item.num }} {{ subTitle }}</span>
+          <div class="title ellipsis" :title="item.title">{{ item.title }}</div>
+        </router-link>
+      </template>
+      <template v-else>
+        <a
+          class="box-card_item-link clearfix"
+          target="_blank"
+          :href="`${getTo}${item.id}`"
+        >
+          <span class="sub-title fr">{{ item.num }} {{ subTitle }}</span>
+          <div class="title ellipsis" :title="item.title">{{ item.title }}</div>
+        </a>
+      </template>
     </div>
   </el-card>
 </template>
@@ -52,7 +64,7 @@
     switch (props.cardType) {
       case 1:
       case 3:
-        res = '/detail/'
+        res = `${import.meta.env.VITE_detailPath}/detail/`
         break
       case 2:
         res = '/list?columnId='

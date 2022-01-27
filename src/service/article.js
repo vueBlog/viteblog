@@ -5,3 +5,9 @@ export const apiArticleList = (paramsData = {}) => {
     params: paramsData
   })
 }
+
+export const apiColumnDetail = (paramsData = {}) => {
+  return axios.get('/column/detail', {
+    params: paramsData
+  })
+}

@@ -21,6 +21,9 @@
   const router = useRouter()
   const route = useRoute()
 
+  import { useTitle } from '@vueuse/core'
+  useTitle(import.meta.env.VITE_title)
+
   // 是否显示头部底部，在编辑页面不显示
   const layoutShow = computed(() => !/\/editor\/?\d*/.test(route.path))
 

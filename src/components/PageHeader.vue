@@ -67,9 +67,13 @@
   }
   function searchHandleSelect(key) {
     if ([0, 7].includes(key.type)) {
-      router.push(`/detail/${key.articleId}`)
+      window.open(`${import.meta.env.VITE_detailPath}/detail/${key.articleId}`)
     } else if ([1, 2, 3, 4, 5, 6].includes(key.type)) {
-      router.push(`/detail/${key.articleId}#${key[`h${key.type}`]}`)
+      window.open(
+        `${import.meta.env.VITE_detailPath}/detail/${key.articleId}#${
+          key[`h${key.type}`]
+        }`
+      )
     }
   }
   function getSearchName(type) {
