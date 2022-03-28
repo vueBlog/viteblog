@@ -49,6 +49,7 @@
   import { ref, computed } from 'vue'
   import { useStore } from 'vuex'
   import { useRouter, useRoute } from 'vue-router'
+  import { apiSearch } from '@/service/basic.js'
 
   const router = useRouter()
   const route = useRoute()
@@ -56,7 +57,6 @@
   const logoText = store.state.logoText
 
   // 搜索
-  import { apiSearch } from '@/service/basic.js'
   const searchValue = ref('')
   async function querySearchAsync(queryString, cb) {
     if (!queryString.length) return

@@ -83,15 +83,17 @@
   import { reactive, watch } from 'vue'
   import { useRouter, useRoute } from 'vue-router'
   import { useStore } from 'vuex'
+  import { useTitle } from '@vueuse/core'
+  import getAsideEvent from './../utils/aside'
+  import getArticleEvent from './../utils/article'
+  import { apiColumnDetail } from './../service/article'
 
   const router = useRouter()
   const route = useRoute()
   const store = useStore()
 
-  import { useTitle } from '@vueuse/core'
   useTitle(`归档 | ${import.meta.env.VITE_title}`)
 
-  import getAsideEvent from './../utils/aside'
   const aside = reactive({
     loading: true,
     list: []
@@ -100,7 +102,6 @@
     Object.assign(aside, res)
   })
 
-  import getArticleEvent from './../utils/article'
   const list = reactive({
     headerSelect: [
       {
@@ -175,7 +176,6 @@
     })
   }
 
-  import { apiColumnDetail } from './../service/article'
   const columnInfo = reactive({
     columnContent: '',
     columnId: 0,
@@ -195,6 +195,7 @@
   watch(
     route,
     () => {
+      columnInfo.columnTitle = ''
       apiColumnDetailMethod()
     },
     {

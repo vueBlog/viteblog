@@ -17,11 +17,11 @@
   import { useRouter, useRoute } from 'vue-router'
   import { useNProgress } from '@vueuse/integrations/useNProgress'
   import './styles/NProgress.scss'
+  import { useTitle } from '@vueuse/core'
 
   const router = useRouter()
   const route = useRoute()
 
-  import { useTitle } from '@vueuse/core'
   useTitle(import.meta.env.VITE_title)
 
   // 是否显示头部底部，在编辑页面不显示
@@ -54,6 +54,7 @@
     }
     .layout-box {
       padding: 20px 0;
+      min-height: calc(100vh - 220px);
     }
     .layout-footer {
       padding: 0;

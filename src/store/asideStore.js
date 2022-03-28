@@ -6,11 +6,6 @@ export default {
     aside: [],
     asideAuthor: []
   },
-  getters: {
-    getFirstAuthor(state) {
-      return state.asideAuthor.length && state.asideAuthor[0].authorId
-    }
-  },
   mutations: {
     setAside(state, value) {
       state.aside = value

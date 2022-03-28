@@ -96,15 +96,16 @@
   import { ref, reactive, watch, computed } from 'vue'
   import { useRouter, useRoute } from 'vue-router'
   import { useStore } from 'vuex'
+  import { useTitle } from '@vueuse/core'
+  import getAsideEvent from './../utils/aside'
+  import getArticleEvent from './../utils/article'
 
   const router = useRouter()
   const route = useRoute()
   const store = useStore()
 
-  import { useTitle } from '@vueuse/core'
   useTitle(`关于 | ${import.meta.env.VITE_title}`)
 
-  import getAsideEvent from './../utils/aside'
   const aside = reactive({
     loading: true,
     list: []
@@ -115,18 +116,21 @@
   })
 
   const activeName = computed(() => {
-    return route.query.author * 1 || store.state.asideStore.getFirstAuthor
+    return route.query.author * 1 || aside.list[0].authorId
   })
   const currentAuthor = reactive({})
+  function getCurrentAuthor() {
+    if (aside.list.length) {
+      Object.assign(
+        currentAuthor,
+        aside.list.filter(item => item.authorId === activeName.value)[0]
+      )
+    }
+  }
   watch(
-    aside.list,
+    aside,
     () => {
-      if (aside.list.length) {
-        Object.assign(
-          currentAuthor,
-          aside.list.filter(item => item.authorId === activeName.value)[0]
-        )
-      }
+      getCurrentAuthor()
     },
     {
       deep: true
@@ -147,7 +151,6 @@
       : 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'
   }
 
-  import getArticleEvent from './../utils/article'
   const list = reactive({
     headerSelect: [
       {
@@ -181,6 +184,7 @@
   watch(
     route,
     () => {
+      getCurrentAuthor()
       list.loading = true
       document.body.scrollTop = document.documentElement.scrollTop = 0
       getArticleEvent(route, store).then(res => {
