@@ -17,6 +17,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
+        charset: false,
         // https://sass.bootcss.com/documentation/at-rules/use
         additionalData: `@use "@/styles/index.scss" as *;`
       }
